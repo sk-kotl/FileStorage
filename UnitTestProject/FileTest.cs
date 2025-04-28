@@ -30,14 +30,16 @@ namespace UnitTestProject
         {
             lenght = content.Length / 2;
 
-            Assert.AreEqual(newFile.GetSize(), lenght, SIZE_EXCEPTION);
+            //Assert.AreEqual(newFile.GetSize(), lenght, SIZE_EXCEPTION);
+            Assert.That(newFile.GetSize(), Is.EqualTo(lenght), SIZE_EXCEPTION);
         }
 
         /* Тестируем получение имени */
         [Test, TestCaseSource(nameof(FilesData))]
         public void GetFilenameTest(File newFile, String name, String content)
         {
-            Assert.AreEqual(newFile.GetFilename(), name, NAME_EXCEPTION);
+            // Assert.AreEqual(newFile.GetFilename(), name, NAME_EXCEPTION); 
+            Assert.That(newFile.GetFilename(), Is.EqualTo(name), NAME_EXCEPTION);
         }
 
     }

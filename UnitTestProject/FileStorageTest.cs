@@ -51,7 +51,8 @@ namespace UnitTestProject
         [Test, TestCaseSource(nameof(NewFilesData))]
         public void WriteTest(File file) 
         {
-            Assert.True(storage.Write(file));
+            //Assert.True(storage.Write(file));
+            Assert.That(storage.Write(file), Is.True);
             storage.DeleteAllFiles();
         }
 
@@ -62,27 +63,28 @@ namespace UnitTestProject
             try
             {
                 storage.Write(file);
-                Assert.False(storage.Write(file));
+                Assert.That(storage.Write(file), Is.False);
                 storage.DeleteAllFiles();
             } 
             catch (FileNameAlreadyExistsException)
             {
                 isException = true;
             }
-            Assert.True(isException, NO_EXPECTED_EXCEPTION_EXCEPTION);
+            //Assert.True(isException, NO_EXPECTED_EXCEPTION_EXCEPTION);
+            Assert.That(isException, Is.True, NO_EXPECTED_EXCEPTION_EXCEPTION);
         }
 
         /* Тестирование проверки существования файла */
         [Test, TestCaseSource(nameof(NewFilesData))]
         public void IsExistsTest(File file) {
             String name = file.GetFilename();
-            Assert.False(storage.IsExists(name));
+            Assert.That(storage.IsExists(name), Is.False);
             try {
                 storage.Write(file);
             } catch (FileNameAlreadyExistsException e) {
                 Console.WriteLine(String.Format("Exception {0} in method {1}", e.GetBaseException(), MethodBase.GetCurrentMethod().Name));
             }
-            Assert.True(storage.IsExists(name));
+            Assert.That(storage.IsExists(name), Is.True);
             storage.DeleteAllFiles();
         }
 
@@ -90,7 +92,7 @@ namespace UnitTestProject
         [Test, TestCaseSource(nameof(FilesForDeleteData))]
         public void DeleteTest(File file, String fileName) {
             storage.Write(file);
-            Assert.True(storage.Delete(fileName));
+            Assert.That(storage.Delete(fileName), Is.True);
         }
 
         /* Тестирование получения файлов */
@@ -99,7 +101,8 @@ namespace UnitTestProject
         {
             foreach (File el in storage.GetFiles()) 
             {
-                Assert.NotNull(el);
+                //Assert.NotNull(el);
+                Assert.That(el, Is.Not.Null);
             }
         }
 
@@ -113,7 +116,8 @@ namespace UnitTestProject
             File actualfile = storage.GetFile(expectedFile.GetFilename());
             bool difference = actualfile.GetFilename().Equals(expectedFile.GetFilename()) && actualfile.GetSize().Equals(expectedFile.GetSize());
 
-            Assert.IsFalse(difference, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
+            //Assert.IsFalse(difference, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
+            Assert.That(difference, Is.False, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
         }
     }
 }
