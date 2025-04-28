@@ -1,0 +1,10 @@
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\bin\Debug\netstandard2.0\FileStorage.deps.json
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\bin\Debug\netstandard2.0\FileStorage.dll
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\bin\Debug\netstandard2.0\FileStorage.pdb
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.csproj.AssemblyReference.cache
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.GeneratedMSBuildEditorConfig.editorconfig
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.AssemblyInfoInputs.cache
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.AssemblyInfo.cs
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.csproj.CoreCompileInputs.cache
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.dll
+E:\data\part 2\Тестирование поляк\UnitTestEx\FileStorage\obj\Debug\netstandard2.0\FileStorage.pdb
