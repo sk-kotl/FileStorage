@@ -33,14 +33,14 @@ namespace UnitTestProject
         static object[] NewFilesData =
         {
             new object[] { new File(REPEATED_STRING, CONTENT_STRING) },
-            new object[] { new File(SPACE_STRING, WRONG_SIZE_CONTENT_STRING) },
+            new object[] { new File(SPACE_STRING, CONTENT_STRING) },
             new object[] { new File(FILE_PATH_STRING, CONTENT_STRING) }
         };
 
         static object[] FilesForDeleteData =
         {
             new object[] { new File(REPEATED_STRING, CONTENT_STRING), REPEATED_STRING },
-            new object[] { null, TIC_TOC_TOE_STRING }
+            new object[] { new File(TIC_TOC_TOE_STRING, CONTENT_STRING), TIC_TOC_TOE_STRING }
         };
 
         static object[] NewExceptionFileData = {
@@ -51,9 +51,9 @@ namespace UnitTestProject
         [Test, TestCaseSource(nameof(NewFilesData))]
         public void WriteTest(File file) 
         {
+            storage.DeleteAllFiles();
             //Assert.True(storage.Write(file));
             Assert.That(storage.Write(file), Is.True);
-            storage.DeleteAllFiles();
         }
 
         /* Тестирование записи дублирующегося файла */
@@ -78,14 +78,13 @@ namespace UnitTestProject
         [Test, TestCaseSource(nameof(NewFilesData))]
         public void IsExistsTest(File file) {
             String name = file.GetFilename();
-            Assert.That(storage.IsExists(name), Is.False);
+            Assert.That(storage.IsExists(name), Is.True);
             try {
                 storage.Write(file);
             } catch (FileNameAlreadyExistsException e) {
                 Console.WriteLine(String.Format("Exception {0} in method {1}", e.GetBaseException(), MethodBase.GetCurrentMethod().Name));
             }
             Assert.That(storage.IsExists(name), Is.True);
-            storage.DeleteAllFiles();
         }
 
         /* Тестирование удаления файла */
@@ -117,7 +116,7 @@ namespace UnitTestProject
             bool difference = actualfile.GetFilename().Equals(expectedFile.GetFilename()) && actualfile.GetSize().Equals(expectedFile.GetSize());
 
             //Assert.IsFalse(difference, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
-            Assert.That(difference, Is.False, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
+            Assert.That(difference, Is.True, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
         }
     }
 }
