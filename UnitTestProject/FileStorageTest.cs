@@ -52,7 +52,6 @@ namespace UnitTestProject
         public void WriteTest(File file) 
         {
             storage.DeleteAllFiles();
-            //Assert.True(storage.Write(file));
             Assert.That(storage.Write(file), Is.True);
         }
 
@@ -70,7 +69,6 @@ namespace UnitTestProject
             {
                 isException = true;
             }
-            //Assert.True(isException, NO_EXPECTED_EXCEPTION_EXCEPTION);
             Assert.That(isException, Is.True, NO_EXPECTED_EXCEPTION_EXCEPTION);
         }
 
@@ -100,7 +98,6 @@ namespace UnitTestProject
         {
             foreach (File el in storage.GetFiles()) 
             {
-                //Assert.NotNull(el);
                 Assert.That(el, Is.Not.Null);
             }
         }
@@ -115,7 +112,6 @@ namespace UnitTestProject
             File actualfile = storage.GetFile(expectedFile.GetFilename());
             bool difference = actualfile.GetFilename().Equals(expectedFile.GetFilename()) && actualfile.GetSize().Equals(expectedFile.GetSize());
 
-            //Assert.IsFalse(difference, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
             Assert.That(difference, Is.True, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
         }
     }
