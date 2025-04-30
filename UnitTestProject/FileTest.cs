@@ -42,13 +42,23 @@ namespace UnitTestProject
 
         /* Тестируем создание файла без расширения */
         [Test]
-        public void Constructor_WithoutExtension_ShouldHandleCorrectly()
+        public void CreateNewFileWithoutExtension_ShouldHandleCorrectly()
         {
             string filename = "noextension";
             string content = "Some content";
             Assert.DoesNotThrow(() => new File(filename, content), "Constructor should handle filename without extension");
             File file = new File(filename, content);
             Assert.That(file.GetFilename(), Is.EqualTo(filename), "Filename should be set correctly");
+        }
+
+        /* Тестируем создание файла с пустым содержимым */
+        [Test]
+        public void CreateNewFileWithEmptyContent_ShouldSetZeroSize()
+        {
+            string filename = "empty.txt";
+            string content = "";
+            File file = new File(filename, content);
+            Assert.That(file.GetSize(), Is.EqualTo(0), "File size should be 0 for empty content");
         }
     }
 }

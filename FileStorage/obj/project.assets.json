@@ -1568,11 +1568,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\data\\part 2\\Тестирование поляк\\UnitTestEx\\FileStorage\\FileStorage.csproj",
+      "projectUniqueName": "D:\\data\\part 2\\Тестирование полякова\\UnitTestEx\\FileStorage\\FileStorage.csproj",
       "projectName": "FileStorage",
-      "projectPath": "D:\\data\\part 2\\Тестирование поляк\\UnitTestEx\\FileStorage\\FileStorage.csproj",
+      "projectPath": "D:\\data\\part 2\\Тестирование полякова\\UnitTestEx\\FileStorage\\FileStorage.csproj",
       "packagesPath": "C:\\Users\\Евгений\\.nuget\\packages\\",
-      "outputPath": "D:\\data\\part 2\\Тестирование поляк\\UnitTestEx\\FileStorage\\obj\\",
+      "outputPath": "D:\\data\\part 2\\Тестирование полякова\\UnitTestEx\\FileStorage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

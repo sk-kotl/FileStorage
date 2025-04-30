@@ -102,7 +102,6 @@ namespace UnitTestProject
             }
         }
 
-        // Почти эталонный
         /* Тестирование получения файла */
         [Test, TestCaseSource(nameof(NewFilesData))]
         public void GetFileTest(File expectedFile) 
@@ -113,6 +112,14 @@ namespace UnitTestProject
             bool difference = actualfile.GetFilename().Equals(expectedFile.GetFilename()) && actualfile.GetSize().Equals(expectedFile.GetSize());
 
             Assert.That(difference, Is.True, string.Format("There is some differences in {0} or {1}", expectedFile.GetFilename(), expectedFile.GetSize()));
+        }
+
+        /* Тестирование удаления несуществующего файла */
+        [Test]
+        public void DeleteNonExistentFile_ShouldReturnFalse()
+        {
+            string nonExistentFileName = "nonexistent.txt";
+            Assert.That(storage.Delete(nonExistentFileName), Is.False, "Delete should return false for non-existent file");
         }
     }
 }
