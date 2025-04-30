@@ -20,7 +20,7 @@ namespace UnitTestProject
         /* ПРОВАЙДЕР */
         static object[] FilesData =
         {
-            new object[] {new File(FILE_PATH_STRING, CONTENT_STRING), FILE_PATH_STRING, CONTENT_STRING},
+            new object[] { new File(FILE_PATH_STRING, CONTENT_STRING), FILE_PATH_STRING, CONTENT_STRING},
             new object[] { new File(SPACE_STRING, SPACE_STRING), SPACE_STRING, SPACE_STRING}
         };
 
@@ -40,5 +40,15 @@ namespace UnitTestProject
             Assert.That(newFile.GetFilename(), Is.EqualTo(name), NAME_EXCEPTION);
         }
 
+        /* Тестируем создание файла без расширения */
+        [Test]
+        public void Constructor_WithoutExtension_ShouldHandleCorrectly()
+        {
+            string filename = "noextension";
+            string content = "Some content";
+            Assert.DoesNotThrow(() => new File(filename, content), "Constructor should handle filename without extension");
+            File file = new File(filename, content);
+            Assert.That(file.GetFilename(), Is.EqualTo(filename), "Filename should be set correctly");
+        }
     }
 }
